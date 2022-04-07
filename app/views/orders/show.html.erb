@@ -4,12 +4,12 @@
     <h1>Order # <%= @order.id %></h1>
   </header>
 
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+  <div class="user_email">
+    <h1> for <%= @order.email %> </h1>
   </div>
 
-  <div class="order_total">
-    <h1> Order total: $<%= (@order.total_cents) * 0.01 %> </h1>
+  <div class="order-summary jumbotron">
+    <h4>Thank you for your order!</h4>
   </div>
 
   <div class="items">
@@ -35,8 +35,8 @@
     </table>
   </div>
 
-  <div class="user_email">
-    <h1> Your email: <%= @order.email %> </h1>
+  <div class="order_total">
+    <h1> Order total: $<%= (@order.total_cents) * 0.01 %> </h1>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
