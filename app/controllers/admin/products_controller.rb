@@ -1,8 +1,6 @@
 class Admin::ProductsController < ApplicationController
   # basic authentication v
-  http_basic_authenticate_with name: "Jungle", password: "book", except: :index
-
-  # ^ need help with a mentor for this authentication
+  http_basic_authenticate_with name: "Jungle", password: "book"
 
   def index
     @products = Product.order(id: :desc).all

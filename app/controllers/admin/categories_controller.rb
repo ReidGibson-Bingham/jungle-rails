@@ -1,12 +1,29 @@
 class Admin::CategoriesController < ApplicationController
   # basic authentication v
-  http_basic_authenticate_with name: "Jungle", password: "book", except: :index
+  http_basic_authenticate_with name: "Jungle", password: "book"
 
-  # ^ need help with a mentor for this authentication
+  def index
+    @categories = Category.order(name: :desc).all
+  end
 
-  def show
-    @count = Product.count()
-    @categories = Category.count(:name)
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+
+    if @category.save
+      redirect_to [:admin, :categories], notice: 'Category created!'
+    else
+      render :new
+    end
+  end
+
+  def category_params
+    params.require(:category).permit(
+      :name,
+    )
   end
 
 end
