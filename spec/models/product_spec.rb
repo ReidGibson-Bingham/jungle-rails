@@ -6,6 +6,7 @@ RSpec.describe Product, type: :model do
     @category = Category.new(name: "Apparel")
     @product = Product.new(name: "red", price: 30.00, quantity: 3, category: @category) 
   end
+  
   describe 'Validations' do
     it "has a name that is not nil" do
       expect(@product.name).not_to be(nil)
